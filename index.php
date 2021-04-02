@@ -4,10 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<hi>～コーヒー豆のおすすめ！～</h1>
-    <form method="POST" action="practice1.php">
-        <div>あなたの名前と年齢を教えてください。</div>
-        <input>
+<h1>～コーヒー豆のおすすめ！～</h1>
+    
+        
         
     </form>
     <?php
@@ -27,13 +26,13 @@ try {
     print '<div class="flex-container">';
     while($kekka = $re->fetch()) {
        
-       print "<img src='https://mystyle.ucc.co.jp/magazine/wp-content/uploads/2019/08/2166_01.jpg' alt='あいうえお' width='500' height='600'>";
+       print "<img src='https://mystyle.ucc.co.jp/magazine/wp-content/uploads/2019/08/2166_01.jpg' alt='あいうえお' width='300' height='300'>";
         print $kekka[0];
-       
+        print " ";
         print $kekka[1];
-       
+        print " ";
         print $kekka[2];
-    
+        print " ";
         print $kekka[3];
        
         
