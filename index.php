@@ -19,26 +19,39 @@ require_once('db_info.php');
 try { 
 
     $dbh = new PDO($dsn);
-   
+    
+    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
     // この下にプログラムを書きましょう。
     $re = $dbh->query("SELECT * FROM coffee");  // tb1のデータをSELECTします
+
     print '<div class="flex-container">';
     while($kekka = $re->fetch()) {
-       
-       print "<img src='https://mystyle.ucc.co.jp/magazine/wp-content/uploads/2019/08/2166_01.jpg' alt='あいうえお' width='300' height='300'>";
+
         print $kekka[0];
-        print " ";
-        print $kekka[1];
-        print " ";
-        print $kekka[2];
-        print " ";
-        print $kekka[3];
-       
+        print "<br>";
         
-        print"<div class='box'>";
+       
+        print '<div style= "background-color:#7776BC;width:200px;">';
         print "</div>";
+        print $kekka[1];
+        print "　|　";
+        print $kekka[4];
+        print "　|　";
+        print $kekka[5];
+        print "<br>";
+        print "<img src='$kekka[5]' alt='あいうえお' width='300' height='300'>";
+        print "|";
+        print $kekka[2];
+        print "円";
+        print "　";
+        print "（ 評価 ）";
+        print $kekka[3];
+        print "<div class='box'>";
+        print "</div>";
+        print "<br>";
     }
+    
     print "</div>";
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
