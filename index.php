@@ -2,22 +2,17 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <h1>～コーヒー豆のおすすめ！～</h1>
 </head>
 <body>
-<h1>～コーヒー豆のおすすめ！～</h1>
-    
-        
-        
-    </form>
-    <?php
+<?php 
+
 header('Content-Type: text/html;charset=utf-8');  // 日本語が正しく表示されるようにいれる
 
 /* Connect to a MySQL database using driver invocation */
 require_once('db_info.php');
 
-
 try { 
-
     $dbh = new PDO($dsn);
     
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -40,7 +35,7 @@ try {
         print "　|　";
         print $kekka[5];
         print "<br>";
-        print "<img src='$kekka[5]' alt='あいうえお' width='300' height='300'>";
+        print "<a href='$kekka[6]'><img src='$kekka[5]' alt='あいうえお' width='300' height='300'></a>";
         print "|";
         print $kekka[2];
         print "円";
@@ -53,10 +48,19 @@ try {
     }
     
     print "</div>";
+
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
 
 ?>
+        
+        
+ 
+   
+
+
+
+
 </body>
 </html>
