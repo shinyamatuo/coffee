@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+     .flex-container{
+        background-color: peru; 
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box {
+            
+            margin: 25px;
+            padding: 25px;
+            border: 5px solid peru;
+            }
+    
+    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <h1>～コーヒー豆のおすすめ！～</h1>
 </head>
 <body>
+<h1>～コーヒー豆のおすすめ！～</h1>
 <?php 
 
 header('Content-Type: text/html;charset=utf-8');  // 日本語が正しく表示されるようにいれる
@@ -20,31 +35,49 @@ try {
     // この下にプログラムを書きましょう。
     $re = $dbh->query("SELECT * FROM coffee");  // tb1のデータをSELECTします
 
-    print '<div class="flex-container">';
+   
     while($kekka = $re->fetch()) {
-
+        print "<div class='flex-container'>";
         print $kekka[0];
         print "<br>";
         
-       
-        print '<div style= "background-color:#7776BC;width:200px;">';
+        
+        print "<div class='box' border= '5px solid blak'>";
+        print "<a href='$kekka[6]'><img src='$kekka[5]' alt='あいうえお' width='400' height='400'></a>";
         print "</div>";
+
+        print "<div class='box' >";
+        print "<br>";
+        print " ";
+        print "<br>";
+        print " ";
+        print "<br>";
         print $kekka[1];
-        print "　|　";
+        print "<br>";
+        print " ";
+        print "<br>";
+        print " ";
+        print "<br>";
+        print "（ 評価 ）$kekka[3]";
+        print "<br>";
+        print " ";
+        print "<br>";
+        print " $kekka[2]";
+        print " 円";
+        print "<br>";
+        print " ";
+        print "<br>";
+        print " ";
+        print "<br>";
+        print " ";
+        print "<br>";
+        print " ";
+        print "<br>";
         print $kekka[4];
-        print "　|　";
-        print $kekka[5];
         print "<br>";
-        print "<a href='$kekka[6]'><img src='$kekka[5]' alt='あいうえお' width='300' height='300'></a>";
-        print "|";
-        print $kekka[2];
-        print "円";
-        print "　";
-        print "（ 評価 ）";
-        print $kekka[3];
-        print "<div class='box'>";
+        print " ";
+        print "<br>";
         print "</div>";
-        print "<br>";
     }
     
     print "</div>";
